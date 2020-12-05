@@ -13,6 +13,7 @@ for k in range(8):
 
 iTmp = 0
 highestSeatID = 0
+IDs = []
 for boarding in input:
     tmpCol = []
     tmpRow = []
@@ -48,7 +49,8 @@ for boarding in input:
                     iTmp = int((len(tmpCol)/2) * -1)
                     tmpCol = tmpCol[iTmp:]
     seatID = int(tmpRow[0]) * 8 + int(tmpCol[0])
-    if seatID > highestSeatID:
-        highestSeatID = seatID
+    IDs.append(seatID)
 
-print(highestSeatID)
+for id in IDs:
+    if (not (id+1) in IDs and (id+2) in IDs) or ((id-1) not in IDs and (id-2) in IDs):
+        print(id)
